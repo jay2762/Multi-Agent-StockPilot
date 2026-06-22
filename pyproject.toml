@@ -1,0 +1,19 @@
+[project]
+name = "finance-assistant"
+version = "0.1.0"
+requires-python = ">=3.12"
+dependencies = [
+  "fastapi==0.115.0",
+  "uvicorn[standard]==0.30.6",
+  "pydantic>=2.10.0",
+  "python-dotenv==1.0.1",
+  "requests==2.32.3",
+  "beautifulsoup4==4.12.3",
+  "yfinance==0.2.43",
+  "pandas==2.2.2",
+  "numpy>=1.26.0,<2.0.0",
+  "vaderSentiment==3.3.2",
+]
+
+[project.scripts]
+app = "backend.main:app"
