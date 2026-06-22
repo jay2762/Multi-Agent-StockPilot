@@ -17,11 +17,14 @@ BACKEND_URL = os.getenv("BACKEND_URL")
 if not BACKEND_URL:
     backend_host = os.getenv("BACKEND_HOST")
     backend_port = os.getenv("BACKEND_PORT")
-    BACKEND_URL = (
-        f"http://{backend_host}:{backend_port}"
-        if backend_host and backend_port
-        else "http://127.0.0.1:8000"
-    )
+    if backend_host and "." not in backend_host:
+        BACKEND_URL = f"https://{backend_host}.onrender.com"
+    elif backend_host and backend_port:
+        BACKEND_URL = f"http://{backend_host}:{backend_port}"
+    elif backend_host:
+        BACKEND_URL = f"https://{backend_host}"
+    else:
+        BACKEND_URL = "http://127.0.0.1:8000"
 
 PERIOD_MAP = {"10D": "10d", "1M": "1mo", "3M": "3mo", "6M": "6mo"}
 

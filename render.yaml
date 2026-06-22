@@ -30,8 +30,3 @@ services:
           type: web
           name: finance-assistant-backend
           property: host
-      - key: BACKEND_PORT
-        fromService:
-          type: web
-          name: finance-assistant-backend
-          property: port
